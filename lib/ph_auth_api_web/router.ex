@@ -20,10 +20,10 @@ defmodule PhAuthApiWeb.Router do
     get "/", PageController, :index
   end
 
-  # Other scopes may use custom stacks.
-  # scope "/api", PhAuthApiWeb do
-  #   pipe_through :api
-  # end
+  scope "/api", PhAuthApiWeb do
+    pipe_through :api
+    resources "/offices", OfficeController, only: [:index, :show]
+  end
 
   # Enables LiveDashboard only for development
   #
