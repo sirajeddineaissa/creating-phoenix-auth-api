@@ -32,3 +32,5 @@ ph_auth_api-*.tar
 npm-debug.log
 /assets/node_modules/
 
+# ENV
+.env

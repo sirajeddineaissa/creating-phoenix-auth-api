@@ -50,3 +50,8 @@ config :phoenix, :json_library, Jason
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{config_env()}.exs"
+
+# Guardian Configuration
+config :ph_auth_api, BusiApiWeb.Auth.Guardian,
+  issuer: "ph_auth_api",
+  secret_key: System.fetch_env!("GUARDIAN_SECRET_KEY")
