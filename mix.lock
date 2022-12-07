@@ -1,5 +1,5 @@
 %{
-  "bcrypt_elixir": {:hex, :bcrypt_elixir, "2.3.1", "5114d780459a04f2b4aeef52307de23de961b69e13a5cd98a911e39fda13f420", [:make, :mix], [{:comeonin, "~> 5.3", [hex: :comeonin, repo: "hexpm", optional: false]}, {:elixir_make, "~> 0.6", [hex: :elixir_make, repo: "hexpm", optional: false]}], "hexpm", "42182d5f46764def15bf9af83739e3bf4ad22661b1c34fc3e88558efced07279"},
+  "bcrypt_elixir": {:hex, :bcrypt_elixir, "2.0.3", "64e0792d5b5064391927bf3b8e436994cafd18ca2d2b76dea5c76e0adcf66b7c", [:make, :mix], [{:comeonin, "~> 5.1", [hex: :comeonin, repo: "hexpm", optional: false]}, {:elixir_make, "~> 0.4", [hex: :elixir_make, repo: "hexpm", optional: false]}], "hexpm", "6e9077e5f519489ef423a65efadcc4c1b5ee8d7beb12b4861cd909d04f113ac4"},
   "castore": {:hex, :castore, "0.1.19", "a2c3e46d62b7f3aa2e6f88541c21d7400381e53704394462b9fd4f06f6d42bb6", [:mix], [], "hexpm", "e96e0161a5dc82ef441da24d5fa74aefc40d920f3a6645d15e1f9f3e66bb2109"},
   "comeonin": {:hex, :comeonin, "5.3.3", "2c564dac95a35650e9b6acfe6d2952083d8a08e4a89b93a481acb552b325892e", [:mix], [], "hexpm", "3e38c9c2cb080828116597ca8807bb482618a315bfafd98c90bc22a821cc84df"},
   "connection": {:hex, :connection, "1.1.0", "ff2a49c4b75b6fb3e674bfc5536451607270aac754ffd1bdfe175abe4a6d7a68", [:mix], [], "hexpm", "722c1eb0a418fbe91ba7bd59a47e28008a189d47e37e0e7bb85585a016b2869c"},

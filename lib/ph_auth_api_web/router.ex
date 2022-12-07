@@ -23,6 +23,7 @@ defmodule PhAuthApiWeb.Router do
   scope "/api", PhAuthApiWeb do
     pipe_through :api
     resources "/offices", OfficeController, except: [:new, :edit]
+    get "/users", UserController, :index
     post "/users/register", UserController, :create
     post "/users/login", UserController, :signin
   end
