@@ -23,7 +23,7 @@ defmodule PhAuthApi.Accounts.User do
   def put_encrypted_password(changeset) do
     case changeset do
       %Ecto.Changeset{valid?: true, changes: %{password: password}} ->
-        put_change(changeset, :encrypted_password, Bcrypt.hash_pwd_salt(password))
+        put_change(changeset, :encrypted_password, Comeonin.Bcrypt.hashpwsalt(password))
 
       _ ->
         changeset

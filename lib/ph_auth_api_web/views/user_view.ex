@@ -14,7 +14,7 @@ defmodule PhAuthApiWeb.UserView do
     %{
       id: user.id,
       email: user.email,
-      encrypted_password: user.encrypted_password
-    }
+      encrypted_password: user.encrypted_password,
+      }
   end
 end
