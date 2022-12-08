@@ -52,6 +52,6 @@ config :phoenix, :json_library, Jason
 import_config "#{config_env()}.exs"
 
 # Guardian Configuration
-config :ph_auth_api, BusiApiWeb.Auth.Guardian,
-  issuer: "ph_auth_api",
+config :ph_auth_api, PhAuthApi.Guardian,
+  issuer: :ph_auth_api,
   secret_key: "ryf4IsmiOp3Dta1xKkEiz9GQxg7Iajwx6v1LzFEPqokWIKIwT17Y0wqbSZwBp9z7"
