@@ -23,9 +23,8 @@ defmodule PhAuthApiWeb.Router do
   scope "/api", PhAuthApiWeb do
     pipe_through :api
     resources "/offices", OfficeController, except: [:new, :edit]
-    get "/users", UserController, :index
-    resources "/users/register", UserController, [:create, :show]
-    post "/users/login", UserController, :signin
+    post "/users/register", UserController, :create
+    post "/users/login", UserController, :sign_in
   end
 
   # Enables LiveDashboard only for development

@@ -10,15 +10,15 @@ defmodule PhAuthApiWeb.UserView do
     %{data: render_one(user, UserView, "user.json")}
   end
 
-  def render("user.json", %{user: user}) do
+  def render("user.json", %{user: user, jwt: jwt}) do
     %{
       id: user.id,
       email: user.email,
-      encrypted_password: user.encrypted_password
+      jwt: jwt
     }
   end
 
-  def render("jwt.json", %{jwt: jwt}) do
-    %{jwt: jwt}
+  def render("login_success.json", %{jwt: jwt}) do
+    %{success: true, jwt: jwt}
   end
 end

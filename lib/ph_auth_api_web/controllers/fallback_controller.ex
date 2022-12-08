@@ -21,4 +21,16 @@ defmodule PhAuthApiWeb.FallbackController do
     |> put_view(PhAuthApiWeb.ErrorView)
     |> render(:"404")
   end
+
+  def call(conn, {:error, :invalid_password}) do
+    conn
+    |> put_status(:invalid_password)
+    |> json(%{error: "Password error"})
+  end
+
+  def call(conn, {:error, :unauthorized}) do
+    conn
+    |> put_status(:unauthorized)
+    |> json(%{error: "Login error"})
+  end
 end

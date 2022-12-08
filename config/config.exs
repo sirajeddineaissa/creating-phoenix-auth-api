@@ -54,4 +54,4 @@ import_config "#{config_env()}.exs"
 # Guardian Configuration
 config :ph_auth_api, PhAuthApi.Guardian,
   issuer: "ph_auth_api",
-  secret_key: "ryf4IsmiOp3Dta1xKkEiz9GQxg7Iajwx6v1LzFEPqokWIKIwT17Y0wqbSZwBp9z7"
+  secret_key: "OvT6DbfpUge+4PuWxDCmN1jykKz5tSBCxgUvjmJxDmw/UpmOCVN2Qyi9pXQfVeYw"

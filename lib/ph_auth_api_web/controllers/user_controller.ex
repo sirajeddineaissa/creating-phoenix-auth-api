@@ -17,9 +17,7 @@ defmodule PhAuthApiWeb.UserController do
          {:ok, token, _claims} <- Guardian.encode_and_sign(user) do
       conn
       |> put_status(:created)
-      |> render("jwt.json", jwt: token)
-
-      # |> render("user.json", %{user: user})
+      |> render("user.json", %{user: user, jwt: token})
     end
   end
 
@@ -41,6 +39,16 @@ defmodule PhAuthApiWeb.UserController do
 
     with {:ok, %User{}} <- Accounts.delete_user(user) do
       send_resp(conn, :no_content, "")
+    end
+  end
+
+  def sign_in(conn, %{"email" => email, "password" => password}) do
+    case Accounts.token_sign_in(email, password) do
+      {:ok, token, _claims} ->
+        conn |> render("login_success.json", jwt: token)
+
+      _ ->
+        {:error, :unauthorized}
     end
   end
 end

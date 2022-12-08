@@ -5,8 +5,8 @@ defmodule PhAuthApi.Accounts do
 
   import Ecto.Query, warn: false
   alias PhAuthApi.Repo
-
   alias PhAuthApi.Accounts.User
+  alias PhAuthApi.Guardian
 
   @doc """
   Returns the list of users.
@@ -17,6 +17,7 @@ defmodule PhAuthApi.Accounts do
       [%User{}, ...]
 
   """
+
   def list_users do
     Repo.all(User)
   end
@@ -100,5 +101,38 @@ defmodule PhAuthApi.Accounts do
   """
   def change_user(%User{} = user, attrs \\ %{}) do
     User.changeset(user, attrs)
+  end
+
+  def token_sign_in(email, password) do
+    case verify_credentials(email, password) do
+      {:ok, user} ->
+        Guardian.encode_and_sign(user)
+
+      _ ->
+        {:error, :unauthorized}
+    end
+  end
+
+  defp verify_credentials(email, password) when is_binary(email) and is_binary(password) do
+    with {:ok, user} <- get_by_email(email),
+         do: verify_password(password, user)
+  end
+
+  defp get_by_email(email) when is_binary(email) do
+    case Repo.get_by(User, email: email) do
+      nil ->
+        {:error, "Login error."}
+
+      user ->
+        {:ok, user}
+    end
+  end
+
+  defp verify_password(password, %User{} = user) when is_binary(password) do
+    if Bcrypt.verify_pass(password, user.encrypted_password) do
+      {:ok, user}
+    else
+      {:error, :invalid_password}
+    end
   end
 end
