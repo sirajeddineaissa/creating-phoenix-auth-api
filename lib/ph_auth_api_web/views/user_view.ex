@@ -14,7 +14,11 @@ defmodule PhAuthApiWeb.UserView do
     %{
       id: user.id,
       email: user.email,
-      encrypted_password: user.encrypted_password,
-      }
+      encrypted_password: user.encrypted_password
+    }
+  end
+
+  def render("jwt.json", %{jwt: jwt}) do
+    %{jwt: jwt}
   end
 end

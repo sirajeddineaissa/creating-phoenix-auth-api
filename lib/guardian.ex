@@ -1,7 +1,5 @@
-defmodule PhAuthApiWeb.Auth.Guardian do
+defmodule PhAuthApi.Guardian do
   use Guardian, otp_app: :ph_auth_api
-
-  alias PhAuthApi.Accounts
 
   def subject_for_token(user, _claims) do
     sub = to_string(user.id)
@@ -10,7 +8,7 @@ defmodule PhAuthApiWeb.Auth.Guardian do
 
   def resource_from_claims(claims) do
     id = claims["sub"]
-    resource = Accounts.get_user!(id)
+    resource = PhAuthApi.Accounts.get_user!(id)
     {:ok, resource}
   end
 end
